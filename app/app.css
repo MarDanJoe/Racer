@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.bg-black {
+    background-color: black;
+}
+
+.rounded-full {
+    border-radius: 9999px;
+}

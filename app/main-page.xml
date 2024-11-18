@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="navigatingTo" class="bg-black">
+    <ActionBar title="3D Traffic Racer" class="bg-gray-800 text-white" />
+    
+    <GridLayout rows="*, auto">
+        <!-- Game Container -->
+        <ContentView row="0" loaded="onLoaded" unloaded="onUnloaded" id="gameContainer" />
+        
+        <!-- Game UI -->
+        <GridLayout row="0" rows="auto, *, auto" columns="*" class="p-4">
+            <!-- Score Display -->
+            <StackLayout row="0" orientation="horizontal" horizontalAlignment="center">
+                <Label text="Score: " class="text-2xl text-white" />
+                <Label text="{{ score }}" class="text-2xl text-white font-bold" />
+                <Label text=" x" class="text-2xl text-white ml-4" />
+                <Label text="{{ combo }}" class="text-2xl text-yellow-400 font-bold" />
+            </StackLayout>
+            
+            <!-- Start Game Message -->
+            <Label row="1" 
+                text="Tap Left or Right to Start!" 
+                class="text-3xl text-white text-center"
+                visibility="{{ gameStarted ? 'collapsed' : 'visible' }}" 
+                verticalAlignment="middle" />
+            
+            <!-- High Score -->
+            <Label row="2" 
+                text="{{ 'High Score: ' + highScore }}" 
+                class="text-xl text-white text-center" />
+        </GridLayout>
+        
+        <!-- Controls -->
+        <GridLayout row="1" columns="*, auto, *" class="p-4 bg-gray-800">
+            <Button col="0" text="←" tap="{{ onLeftTap }}" 
+                class="w-20 h-20 rounded-full bg-blue-500 text-white text-3xl" />
+            
+            <Button col="2" text="→" tap="{{ onRightTap }}" 
+                class="w-20 h-20 rounded-full bg-blue-500 text-white text-3xl" />
+        </GridLayout>
+    </GridLayout>
+</Page>
